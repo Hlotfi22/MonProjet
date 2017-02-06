@@ -40,7 +40,7 @@ a:hover .header-profile-image {
 }
 
 .container {
-  padding: 20px 30px 30px 350px;
+  padding: 20px 30px 30px 30px;
 }
 /*/////////////////// BODY //////////////////////////////*/
 md-input-container {
@@ -263,8 +263,9 @@ height:80px;
 }
 .zoom img:hover {
 height:100%;
-}
+}*/
 
 .miniature {
-  height: 80px;
-}*/
+  height: 50px;
+ }
+/* //////////////////// table responsive //////////////////////////*/

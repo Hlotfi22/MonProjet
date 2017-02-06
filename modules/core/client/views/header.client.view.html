@@ -49,8 +49,15 @@
  -->
 
 
-<section ng-controller="HeaderController as vm">
-  <div layout="row" layout-align="end" class="colors">
+<section ng-controller="HeaderController as vm" layout="row" class="colors" >
+
+        <div flex="10">
+          <md-button ng-click="vm.toggleLeft()" class="md-raised">
+           <i class="material-icons">reorder</i>
+          </md-button>
+        </div>
+
+  <div layout-align="end">
     <md-button class="md-raised md-primary" ui-sref-active="active" ui-sref="authentication.signup" ng-hide="vm.authentication.user">sign up</md-button>
     <md-button class="md-primary-raised md-primary" ui-sref-active="active" ui-sref="authentication.signin" ng-hide="vm.authentication.user">sign in</md-button>
 
@@ -72,12 +79,9 @@
     </div>
 
 
+  <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="shouldLockOpen">
 
-  <md-sidenav md-is-open="true" class="md-sidenav-left" md-component-id="left" md-disable-backdrop md-whiteframe="-1">
-    <md-toolbar>
-      <h1 class="md-toolbar-tools"><a ui-sref="home">MENU</a></h1>
-    </md-toolbar>
-    <md-content layout-margin layout-padding flex role="navigation">
+    <md-content  layout-padding flex role="navigation">
       
         <ul id="menu-accordeon" class="nav navbar-nav" ng-if="vm.menu.shouldRender(vm.authentication.user);">
       <li ng-repeat="item in vm.menu.items | orderBy: 'position'" ng-if="item.shouldRender(vm.authentication.user);" ng-switch="item.type" ng-class="{ dropdown: item.type === 'dropdown' }" ui-sref-active="active" class="{{item.class}}" uib-dropdown="item.type === 'dropdown'">
